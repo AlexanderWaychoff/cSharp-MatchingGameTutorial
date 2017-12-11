@@ -222,11 +222,11 @@
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Wingdings", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.label5.Image = global::MatchingGame.Properties.Resources.cube_block;
             this.label5.Location = new System.Drawing.Point(404, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(125, 125);
             this.label5.TabIndex = 4;
-            this.label5.Text = "C";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.Click += new System.EventHandler(this.label_Click);
             // 
