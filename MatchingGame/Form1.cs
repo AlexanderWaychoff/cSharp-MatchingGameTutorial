@@ -63,6 +63,11 @@ namespace MatchingGame
         {
             Label clickedLabel = sender as Label;
 
+            if (timer1.Enabled == true)
+            {
+                return;
+            }
+
             if (clickedLabel != null)
             {
                 // If the clicked label is black, the player clicked
@@ -83,7 +88,35 @@ namespace MatchingGame
 
                     return;
                 }
+                // If the player gets this far, the timer isn't
+                // running and firstClicked isn't null,
+                // so this must be the second icon the player clicked
+                // Set its color to black
+                secondClicked = clickedLabel;
+                secondClicked.ForeColor = Color.Black;
+
+                // If the player gets this far, the player 
+                // clicked two different icons, so start the 
+                // timer (which will wait three quarters of 
+                // a second, and then hide the icons)
+                timer1.Start();
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Stop the timer
+            timer1.Stop();
+
+            // Hide both icons
+            firstClicked.ForeColor = firstClicked.BackColor;
+            secondClicked.ForeColor = secondClicked.BackColor;
+
+            // Reset firstClicked and secondClicked 
+            // so the next time a label is
+            // clicked, the program knows it's the first click
+            firstClicked = null;
+            secondClicked = null;
         }
     }
 }
